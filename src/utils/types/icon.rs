@@ -14,9 +14,11 @@ pub enum Icon {
     Book,
     BytesThreshold,
     Clock,
+    // Collapse,
     Copy,
     Generals,
     Error,
+    // Expand,
     Feedback,
     File,
     Forbidden,
@@ -36,6 +38,7 @@ pub enum Icon {
     Overview,
     PacketsThreshold,
     // Restore,
+    Roadmap,
     Rocket,
     Settings,
     Sniffnet,
@@ -61,10 +64,11 @@ impl Icon {
             Icon::AudioHigh => 'Z',
             Icon::AudioMute => 'Y',
             Icon::Bin => 'h',
-            Icon::BytesThreshold => 'f',
+            Icon::BytesThreshold => '[',
             Icon::Clock => '9',
             Icon::Generals => 'Q',
             Icon::Error => 'U',
+            Icon::Feedback => '=',
             Icon::File => '8',
             Icon::Forbidden => 'x',
             Icon::Funnel => 'V',
@@ -79,7 +83,7 @@ impl Icon {
             Icon::Moon => 'G',
             Icon::Notification => '7',
             Icon::Overview => 'd',
-            Icon::PacketsThreshold => 'e',
+            Icon::PacketsThreshold => '\\',
             // Icon::Restore => 'k',
             Icon::Rocket => 'S',
             Icon::Settings => 'a',
@@ -96,9 +100,11 @@ impl Icon {
             Icon::ThumbnailOpen => 's',
             Icon::ThumbnailClose => 'r',
             Icon::Book => 'B',
-            Icon::Feedback => '=',
+            Icon::Roadmap => '?',
             Icon::News => '>',
             Icon::Update => '<',
+            // Icon::Expand => 'p',
+            // Icon::Collapse => 'q',
         }
     }
 
@@ -108,10 +114,9 @@ impl Icon {
 
     pub fn get_hourglass<'a>(num: usize) -> Text<'a, StyleType> {
         match num {
-            1 => Icon::Hourglass1.to_text(),
             2 => Icon::Hourglass2.to_text(),
             3 => Icon::Hourglass3.to_text(),
-            _ => Text::new(""),
+            _ => Icon::Hourglass1.to_text(),
         }
     }
 }
